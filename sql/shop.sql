@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.migrations: ~21 rows (приблизительно)
+-- Дамп данных таблицы shop.migrations: ~22 rows (приблизительно)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -198,7 +198,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 	('2016_02_11_224626_create_feedbacks_table', 13),
 	('2016_02_15_212108_create_reviews_table', 14),
 	('2016_02_15_215013_add_fields_reviews_table', 15),
-	('2016_02_22_203520_create_callbacks_table', 16);
+	('2016_02_22_203520_create_callbacks_table', 16),
+	('2016_02_23_192653_create_slideshows_table', 17);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 
@@ -275,6 +276,27 @@ INSERT INTO `review_translations` (`id`, `review_id`, `title`, `position`, `teas
 	(11, 2, 'Alex', 'Designer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut.', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut. Praesent eget lacinia lorem. In ac maximus neque, facilisis pretium lorem. Phasellus congue nisl est, non tristique eros dignissim vel.</p>\r\n\r\n<p>Morbi eget odio pretium velit tincidunt euismod eu ac arcu. Etiam vestibulum non erat at mattis. Nunc fringilla, metus gravida ornare aliquet, sapien leo fermentum nisl, sit amet mollis augue neque sed arcu. Aliquam posuere lacus ut congue luctus. Etiam volutpat nisi vitae fermentum molestie. Praesent nec massa congue, eleifend quam at, suscipit odio. Praesent lacinia placerat mauris elementum viverra. Sed auctor eros iaculis diam posuere, vel ullamcorper diam scelerisque. Praesent eleifend porttitor sagittis. Integer vel lacus sit amet mauris aliquet maximus. Aliquam tincidunt eleifend interdum. Ut in risus nec lectus ullamcorper rutrum. In sed elit consequat, pellentesque metus quis, bibendum neque. Etiam at lobortis mi. Sed at facilisis nisi. Maecenas nec rhoncus enim, a eleifend orci.</p>\r\n', 'en'),
 	(12, 3, 'Alex', 'Designer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut.', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut. Praesent eget lacinia lorem. In ac maximus neque, facilisis pretium lorem. Phasellus congue nisl est, non tristique eros dignissim vel.</p>\r\n\r\n<p>Morbi eget odio pretium velit tincidunt euismod eu ac arcu. Etiam vestibulum non erat at mattis. Nunc fringilla, metus gravida ornare aliquet, sapien leo fermentum nisl, sit amet mollis augue neque sed arcu. Aliquam posuere lacus ut congue luctus. Etiam volutpat nisi vitae fermentum molestie. Praesent nec massa congue, eleifend quam at, suscipit odio. Praesent lacinia placerat mauris elementum viverra. Sed auctor eros iaculis diam posuere, vel ullamcorper diam scelerisque. Praesent eleifend porttitor sagittis. Integer vel lacus sit amet mauris aliquet maximus. Aliquam tincidunt eleifend interdum. Ut in risus nec lectus ullamcorper rutrum. In sed elit consequat, pellentesque metus quis, bibendum neque. Etiam at lobortis mi. Sed at facilisis nisi. Maecenas nec rhoncus enim, a eleifend orci.</p>\r\n', 'en');
 /*!40000 ALTER TABLE `review_translations` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.slideshows
+CREATE TABLE IF NOT EXISTS `slideshows` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.slideshows: ~3 rows (приблизительно)
+DELETE FROM `slideshows`;
+/*!40000 ALTER TABLE `slideshows` DISABLE KEYS */;
+INSERT INTO `slideshows` (`id`, `image`, `status`, `order`, `created_at`, `updated_at`) VALUES
+	(1, 'images/uploads/83b2168e1464c768127530b49a7a15f1.jpg', 1, 1, '2016-02-23 20:30:28', '2016-02-23 21:38:51'),
+	(2, 'images/uploads/45a44c2cc0bb9ffbad50d3deca8197dd.jpg', 1, 0, '2016-02-23 20:30:55', '2016-02-23 21:38:51'),
+	(3, 'images/uploads/594997f548e5ee4ca0b101f3adf84d3f.jpg', 1, 2, '2016-02-23 20:35:21', '2016-02-23 21:27:25');
+/*!40000 ALTER TABLE `slideshows` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица shop.users

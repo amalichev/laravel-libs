@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Slideshow;
 use App\Models\Review;
 use App\Models\Map;
 use App\Models\Location;
@@ -18,9 +19,10 @@ class HomeController extends Controller {
 		$gmap_id = 2;
 
 		return view('home', [
-			'reviews' => Review::latest()->published()->simplepaginate(4),
-			'gmap' => [
-				'map'    => Map::find($gmap_id),
+			'slideshows' => Slideshow::orderFirst()->published()->get(),
+			'reviews'    => Review::orderLast()->published()->simplepaginate(4),
+			'gmap'       => [
+				'map'       => Map::find($gmap_id),
 				'locations' => $locations->getLocations($gmap_id),
 			],
 

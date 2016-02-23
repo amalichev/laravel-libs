@@ -13,6 +13,16 @@ class Review extends Model {
         return 'order';
     }
 
+    public function scopeOrderFirst($query)
+    {
+        return $query->orderBy('order', 'asc');
+    }
+
+    public function scopeOrderLast($query)
+    {
+        return $query->orderBy('order', 'desc');
+    }
+
     public function scopePublished($query)
     {
         return $query->where('status', '=', 1);

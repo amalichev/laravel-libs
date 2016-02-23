@@ -8,6 +8,8 @@
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/owl.carousel.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/owl.theme.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,7 +19,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="navbar-is-fixed-top">
+<body class="navbar-is-fixed-top {{ Lang::getLocale() }}">
 	@include('menu.navbar')
 
 	@yield('content')
@@ -33,5 +35,6 @@
 	<script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
 	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('/js/scripts.min.js') }}"></script>
+	<script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
 </body>
 </html>

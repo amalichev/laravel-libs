@@ -11,6 +11,10 @@ Admin::menu()->label('Сообщения')->icon('fa-envelope')->items(function 
         ->label('Обратная связь');
 });
 
+Admin::menu(\App\Models\Slideshow::class)
+    ->icon('fa-file-image-o')
+    ->label('Слайдшоу');
+
 Admin::menu(\App\Models\Review::class)
     ->icon('fa-comments')
     ->label('Отзывы');

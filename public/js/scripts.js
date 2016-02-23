@@ -114,5 +114,12 @@
                 }
             });
         }
+
+        $("#slideshow").owlCarousel({
+            navigation: false,
+            slideSpeed: 1100,
+            paginationSpeed: 1100,
+            singleItem: true
+        });
     });
 }).call(this);

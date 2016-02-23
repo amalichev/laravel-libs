@@ -1,8 +1,14 @@
 @extends('layout.app')
 
 @section('content')
-<div class="container">
-	<div id="reviews" class="block">
+<div id="slideshow" class="block">
+	@foreach($slideshows as $slideshow)
+		<img src="{{ route('imagecache', ['slideshow', $slideshow->image]) }}" alt="" class="img-responsive">
+	@endforeach
+</div>
+<br>
+<div id="reviews" class="block">
+	<div class="container">
 		<div class="row">
 			<h2 class="text-center">{!! trans('widgets.reviews') !!}</h2>
 			<br>
@@ -36,7 +42,9 @@
 			</div>
 		</div>
 	</div>
-	<br>
+</div>
+<br>
+<div class="container">
 	<div class="row">
 		<div class="clearfix">
 			<div class="col-lg-6 col-md-6">

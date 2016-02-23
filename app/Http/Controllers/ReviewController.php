@@ -24,7 +24,7 @@ class ReviewController extends Controller {
 	{
 		app()->setLocale(Session::get('locale'));
 
-		$data['reviews'] = $reviews::latest()->published()->simplepaginate(4);
+		$data['reviews'] = $reviews::orderLast()->published()->simplepaginate(4);
 
 		return view('ajax.reviews', $data)->render();
 	}

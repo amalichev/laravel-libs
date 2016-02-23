@@ -56,6 +56,9 @@ return array(
         'small'  => 'Intervention\Image\Templates\Small',
         'medium' => 'Intervention\Image\Templates\Medium',
         'large'  => 'Intervention\Image\Templates\Large',
+        'slideshow' => function ($image) {
+            return $image->fit(1920, 670);
+        },
         'review' => function ($image) {
             return $image->fit(170, 170);
         },

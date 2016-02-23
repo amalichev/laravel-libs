@@ -20,6 +20,7 @@ return array(
     'CreateMarkersTable' => $baseDir . '/database/migrations/2016_02_06_131206_create_markers_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateReviewsTable' => $baseDir . '/database/migrations/2016_02_15_212108_create_reviews_table.php',
+    'CreateSlideshowsTable' => $baseDir . '/database/migrations/2016_02_23_192653_create_slideshows_table.php',
     'CreateTables' => $vendorDir . '/dimsav/laravel-translatable/tests/migrations/2013_11_28_152610_create_tables.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
