@@ -1,0 +1,18 @@
+<?php
+
+Admin::model('App\Models\Callback')->title('Обратный звонок')->alias('callback')->display(function () {
+    $display = AdminDisplay::table();
+    $display->apply(function ($query) {
+        $query->orderBy('id', 'desc');
+    });
+    $display->columns([
+        Column::string('name')->label('Имя'),
+        Column::custom()->label('E-mail')->callback(function($instance){
+            return $instance->email ? $instance->email : '<i class="fa fa-times"></i>';
+        }),
+        Column::string('phone')->label('Телефон'),
+        Column::datetime('created_at')->label('Отправлено'),
+    ]);
+    return $display;
+
+});

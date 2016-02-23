@@ -1,0 +1,25 @@
+<h1 id="ckeditor-simple-image-browser">CKEditor Simple Image Browser</h1>
+<p>This repository is for the simple image browser. A free plugin made for those who look to make it easy on the user to insert an image to their content. A simple click on the image and WHAM!</p>
+<h3 id="how-to-install">How to install</h3>
+<p>You can build this together with CKEditor. You will need to configure this afterwards with the AJAX url. No other setup is required. You can set the config like so.</p>
+<pre><code>// Add this line if you haven&#39;t build CKEditor with this plugin.
+CKEDITOR.config.extraPlugins = &#39;simple-image-browser&#39;;
+
+// Add this line anyways. You need it to get your images.
+CKEDITOR.config.simpleImageBrowserURL = &lt;INSERT URL TO AJAX FILE HERE&gt;;
+</code></pre><h3 id="json-response">JSON Response</h3>
+<p>The JSON Response exists now only of the url to the file. Nothing more is needed and all your logic can go in the AJAX file. Here is a example of what the JSON response should look like.</p>
+<pre><code>// JSON Response Example
+[{
+    // File 1
+    url: &lt;URL TO FILE HERE&gt;
+},{
+    // File 2
+    url: &lt;URL TO FILE HERE&gt;
+}]
+</code></pre><h3 id="roadmap">Roadmap</h3>
+<p>I want to add the following features in the future.</p>
+<ul>
+<li>Different listing types, not just thumbnails</li>
+<li>Hooks so you can further customize and control the user experience</li>
+</ul>
