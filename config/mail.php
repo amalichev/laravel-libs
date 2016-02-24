@@ -55,7 +55,7 @@ return [
 	*/
 
 //	'from' => ['address' => null, 'name' => null],
-	'from' => ['address' => 'smtp.flipflop@gmail.com', 'name' => 'Laravel'],
+	'from' => ['address' => env('MAIL_USERNAME'), 'name' => env('SITE_NAME')],
 
 	/*
 	|--------------------------------------------------------------------------

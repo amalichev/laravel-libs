@@ -10,7 +10,7 @@
 <div id="reviews" class="block">
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center">{!! trans('widgets.reviews') !!}</h2>
+			<h2 class="text-center">{!! $widget['reviews']->title !!}</h2>
 			<br>
 			<div class="content">
 				@foreach($reviews as $review)
@@ -48,12 +48,12 @@
 	<div class="row">
 		<div class="clearfix">
 			<div class="col-lg-6 col-md-6">
-				<h3>{!! trans('widgets.feedback') !!}</h3>
+				<h3>{!! $widget['feedback']->title !!}</h3>
 				<br>
 				@include('forms.feedback')
 			</div>
 			<div class="col-lg-6 col-md-6">
-				<h3>{!! trans('widgets.location') !!}</h3>
+				<h3>{!! $widget['location']->title !!}</h3>
 				<br>
 				<div id="map-{!! $gmap['map']->id !!}" style="
 					width: {!! $gmap['map']->width !!};

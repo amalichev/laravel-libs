@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\Feedback;
 
 use Illuminate\Http\Request;
@@ -41,7 +42,9 @@ class FeedbackController extends Controller {
 				'field_message' => Input::get('message'),
 			];
 			Mail::send('emails.feedback', $data, function($message) {
-				$message->to('webapace@gmail.com')->subject(trans('email.new_message'));
+				$email = Setting::where('slug', '=', 'email')->first();
+
+				$message->to($email->value)->subject(trans('email.new_message'));
 			});
 			Feedback::create($request->all());
 

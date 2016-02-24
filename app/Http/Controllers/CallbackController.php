@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Setting;
+use App\Models\Widget;
 use App\Models\Callback;
 
 use Illuminate\Http\Request;
@@ -20,7 +22,9 @@ class CallbackController extends Controller {
 	{
 		app()->setLocale(Session::get('locale'));
 
-		return view('forms.callback');
+		return view('forms.callback', [
+			'callback' => Widget::where('slug', '=', 'callback')->first()
+		]);
 	}
 
 	public function store(Request $request)
@@ -46,7 +50,9 @@ class CallbackController extends Controller {
 				'field_phone'   => Input::get('phone'),
 			];
 			Mail::send('emails.callback', $data, function($message) {
-				$message->to('webapace@gmail.com')->subject(trans('email.callback'));
+				$email = Setting::where('slug', '=', 'email')->first();
+
+				$message->to($email->value)->subject(trans('email.callback'));
 			});
 			Callback::create($request->all());
 

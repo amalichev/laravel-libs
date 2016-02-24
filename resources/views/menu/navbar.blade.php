@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="navbar-form navbar-right">
                 <a href="/ajax/callback" class="popup ajax btn btn-primary" data-path="/ajax/callback" data-target="#modal" data-toggle="modal">
-                    {{ trans('widgets.call') }}
+                    {!! $widget['callback']->title !!}
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right">

@@ -40,13 +40,14 @@ CREATE TABLE IF NOT EXISTS `callbacks` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.callbacks: ~1 rows (приблизительно)
+-- Дамп данных таблицы shop.callbacks: ~2 rows (приблизительно)
 DELETE FROM `callbacks`;
 /*!40000 ALTER TABLE `callbacks` DISABLE KEYS */;
 INSERT INTO `callbacks` (`id`, `name`, `email`, `phone`, `created_at`, `updated_at`) VALUES
-	(1, 'Артём', '', '+996552502446', '2016-02-22 21:53:56', '2016-02-22 21:53:56');
+	(1, 'Артём', '', '+996552502446', '2016-02-22 21:53:56', '2016-02-22 21:53:56'),
+	(2, 'Владислав', '', '0772847683', '2016-02-24 23:13:14', '2016-02-24 23:13:14');
 /*!40000 ALTER TABLE `callbacks` ENABLE KEYS */;
 
 
@@ -174,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.migrations: ~22 rows (приблизительно)
+-- Дамп данных таблицы shop.migrations: ~26 rows (приблизительно)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -199,7 +200,11 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 	('2016_02_15_212108_create_reviews_table', 14),
 	('2016_02_15_215013_add_fields_reviews_table', 15),
 	('2016_02_22_203520_create_callbacks_table', 16),
-	('2016_02_23_192653_create_slideshows_table', 17);
+	('2016_02_23_192653_create_slideshows_table', 17),
+	('2016_02_24_193004_create_widgets_table', 18),
+	('2016_02_24_212828_create_settings_table', 19),
+	('2016_02_24_214924_add_fields_widgets_table', 20),
+	('2016_02_24_221633_add_fields_settings_table', 21);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 
@@ -259,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `review_translations` (
   CONSTRAINT `review_translations_review_id_foreign` FOREIGN KEY (`review_id`) REFERENCES `reviews` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.review_translations: ~9 rows (приблизительно)
+-- Дамп данных таблицы shop.review_translations: ~17 rows (приблизительно)
 DELETE FROM `review_translations`;
 /*!40000 ALTER TABLE `review_translations` DISABLE KEYS */;
 INSERT INTO `review_translations` (`id`, `review_id`, `title`, `position`, `teaser`, `text`, `locale`) VALUES
@@ -276,6 +281,26 @@ INSERT INTO `review_translations` (`id`, `review_id`, `title`, `position`, `teas
 	(11, 2, 'Alex', 'Designer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut.', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut. Praesent eget lacinia lorem. In ac maximus neque, facilisis pretium lorem. Phasellus congue nisl est, non tristique eros dignissim vel.</p>\r\n\r\n<p>Morbi eget odio pretium velit tincidunt euismod eu ac arcu. Etiam vestibulum non erat at mattis. Nunc fringilla, metus gravida ornare aliquet, sapien leo fermentum nisl, sit amet mollis augue neque sed arcu. Aliquam posuere lacus ut congue luctus. Etiam volutpat nisi vitae fermentum molestie. Praesent nec massa congue, eleifend quam at, suscipit odio. Praesent lacinia placerat mauris elementum viverra. Sed auctor eros iaculis diam posuere, vel ullamcorper diam scelerisque. Praesent eleifend porttitor sagittis. Integer vel lacus sit amet mauris aliquet maximus. Aliquam tincidunt eleifend interdum. Ut in risus nec lectus ullamcorper rutrum. In sed elit consequat, pellentesque metus quis, bibendum neque. Etiam at lobortis mi. Sed at facilisis nisi. Maecenas nec rhoncus enim, a eleifend orci.</p>\r\n', 'en'),
 	(12, 3, 'Alex', 'Designer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut.', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed odio nec nunc accumsan posuere vel quis urna. Nullam tristique felis mi, sit amet lobortis magna porta accumsan. Nullam ipsum augue, mattis quis arcu pretium, semper fringilla dolor. Mauris sed est porttitor nibh consectetur rutrum et sed odio. Aenean interdum maximus est, at euismod ante mattis ut. Praesent eget lacinia lorem. In ac maximus neque, facilisis pretium lorem. Phasellus congue nisl est, non tristique eros dignissim vel.</p>\r\n\r\n<p>Morbi eget odio pretium velit tincidunt euismod eu ac arcu. Etiam vestibulum non erat at mattis. Nunc fringilla, metus gravida ornare aliquet, sapien leo fermentum nisl, sit amet mollis augue neque sed arcu. Aliquam posuere lacus ut congue luctus. Etiam volutpat nisi vitae fermentum molestie. Praesent nec massa congue, eleifend quam at, suscipit odio. Praesent lacinia placerat mauris elementum viverra. Sed auctor eros iaculis diam posuere, vel ullamcorper diam scelerisque. Praesent eleifend porttitor sagittis. Integer vel lacus sit amet mauris aliquet maximus. Aliquam tincidunt eleifend interdum. Ut in risus nec lectus ullamcorper rutrum. In sed elit consequat, pellentesque metus quis, bibendum neque. Etiam at lobortis mi. Sed at facilisis nisi. Maecenas nec rhoncus enim, a eleifend orci.</p>\r\n', 'en');
 /*!40000 ALTER TABLE `review_translations` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.settings
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `settings_slug_unique` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.settings: ~1 rows (приблизительно)
+DELETE FROM `settings`;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` (`id`, `title`, `value`, `slug`, `created_at`, `updated_at`) VALUES
+	(1, 'E-mail', 'webapace@gmail.com', 'email', '2016-02-24 22:22:54', '2016-02-24 22:22:54');
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица shop.slideshows
@@ -316,6 +341,54 @@ CREATE TABLE IF NOT EXISTS `users` (
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.widgets
+CREATE TABLE IF NOT EXISTS `widgets` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `widgets_slug_unique` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.widgets: ~4 rows (приблизительно)
+DELETE FROM `widgets`;
+/*!40000 ALTER TABLE `widgets` DISABLE KEYS */;
+INSERT INTO `widgets` (`id`, `slug`, `created_at`, `updated_at`) VALUES
+	(1, 'reviews', '2016-02-24 20:13:18', '2016-02-24 20:13:18'),
+	(2, 'feedback', '2016-02-24 20:16:42', '2016-02-24 20:16:42'),
+	(3, 'location', '2016-02-24 20:17:34', '2016-02-24 20:17:34'),
+	(4, 'callback', '2016-02-24 20:18:21', '2016-02-24 21:02:44');
+/*!40000 ALTER TABLE `widgets` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.widget_translations
+CREATE TABLE IF NOT EXISTS `widget_translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `widget_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `locale` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `widget_translations_widget_id_locale_unique` (`widget_id`,`locale`),
+  KEY `widget_translations_locale_index` (`locale`),
+  CONSTRAINT `widget_translations_widget_id_foreign` FOREIGN KEY (`widget_id`) REFERENCES `widgets` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.widget_translations: ~8 rows (приблизительно)
+DELETE FROM `widget_translations`;
+/*!40000 ALTER TABLE `widget_translations` DISABLE KEYS */;
+INSERT INTO `widget_translations` (`id`, `widget_id`, `title`, `locale`) VALUES
+	(1, 1, 'Отзывы', 'ru'),
+	(2, 1, 'Reviews', 'en'),
+	(3, 2, 'Обратная свзяь', 'ru'),
+	(4, 2, 'Feedback', 'en'),
+	(5, 3, 'Location', 'en'),
+	(6, 3, 'Местоположение', 'ru'),
+	(7, 4, 'Заказать звонок', 'ru'),
+	(8, 4, 'Callback', 'en');
+/*!40000 ALTER TABLE `widget_translations` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
