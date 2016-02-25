@@ -1,6 +1,6 @@
 <?php
 
-Admin::model('App\Models\Feedback')->title('Обратная связь')->alias('feedbacks')->display(function () {
+Admin::model('App\Models\Feedback')->title('Обратная связь')->alias('feedback')->display(function () {
     $display = AdminDisplay::table();
     $display->apply(function ($query) {
         $query->orderBy('id', 'desc');

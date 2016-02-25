@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Setting;
 use App\Models\Widget;
 use App\Models\Slideshow;
 use App\Models\Review;

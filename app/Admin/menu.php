@@ -1,6 +1,6 @@
 <?php
 
-Admin::menu()->url('/')->label('Главная')->icon('fa-dashboard');
+Admin::menu()->url('/')->label('Панель управления')->icon('fa-dashboard');
 
 Admin::menu()->label('Сообщения')->icon('fa-envelope')->items(function () {
     Admin::menu(\App\Models\Callback::class)

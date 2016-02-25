@@ -1,0 +1,49 @@
+.panel {
+    border-radius: 0;
+}
+
+.panel .huge {
+    font-size: 40px;
+}
+
+.panel .panel-footer {
+    border-radius: 0;
+}
+
+.panel-red,
+.panel-red .panel-heading {
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-green a { color: #d9534f; }
+
+.panel-green,
+.panel-green .panel-heading {
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a { color: #5cb85c; }
+
+.panel-yellow,
+.panel-yellow .panel-heading {
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a { color: #f0ad4e; }
+
+.panel-blue,
+.panel-blue .panel-heading {
+    color: #fff;
+    background-color: #3c8dbc;
+}
+
+.panel-blue a { color: #3c8dbc; }
+
+.panel-red .panel-footer,
+.panel-green .panel-footer,
+.panel-yellow .panel-footer {
+    background-color: #fff;
+}

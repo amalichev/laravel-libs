@@ -6,8 +6,8 @@
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
+		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.home.css'))}}
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.navbar.css'))}}
-
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.image.css'))}}
 
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addScript(asset('/js/admin-lte.slug.js'))}}
