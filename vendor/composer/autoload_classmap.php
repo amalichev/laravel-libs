@@ -15,6 +15,7 @@ return array(
     'ChangeFieldsLocationsTable' => $baseDir . '/database/migrations/2016_02_06_132742_change_fields_locations_table.php',
     'CreateAdministratorsTable' => $baseDir . '/database/migrations/2014_10_12_104748_create_administrators_table.php',
     'CreateCallbacksTable' => $baseDir . '/database/migrations/2016_02_22_203520_create_callbacks_table.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_02_26_133433_create_categories_table.php',
     'CreateFeedbacksTable' => $baseDir . '/database/migrations/2016_02_11_224626_create_feedbacks_table.php',
     'CreateLocationTranslationsTable' => $baseDir . '/database/migrations/2016_02_10_115138_create_location_translations_table.php',
     'CreateLocationsTable' => $baseDir . '/database/migrations/2016_02_06_131157_create_locations_table.php',

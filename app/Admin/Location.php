@@ -24,7 +24,6 @@ Admin::model('App\Models\Location')->title('Локации')->alias('locations')
     $maps = Map::lists('title', 'id');
     $markers = Marker::lists('title', 'id');
 
-
     $form = AdminForm::form();
 
     $form->items([

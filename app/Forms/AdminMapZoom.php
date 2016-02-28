@@ -11,4 +11,5 @@ class AdminMapZoom extends NamedFormItem
 
         return view('admin.map.zoom', $params);
     }
+
 }

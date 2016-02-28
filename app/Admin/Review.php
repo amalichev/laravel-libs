@@ -28,7 +28,7 @@ Admin::model('App\Models\Review')->title('Отзывы')->alias('reviews')->disp
                 FormItem::ckeditor('text', 'Полная версия')->required(),
             ],
             [
-                FormItem::register('number', 'App\Forms\AdminOrder'),
+//                FormItem::register('number', 'App\Forms\AdminOrder'),
 
                 FormItem::text('title', 'Имя')->required(),
                 FormItem::text('position', 'Должность'),

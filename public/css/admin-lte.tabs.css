@@ -1,0 +1,12 @@
+.skin-blue .nav-tabs > li > a {
+    color: inherit;
+}
+
+.skin-blue .nav-tabs > li.active > a,
+.skin-blue .nav-tabs > li.active > a:focus,
+.skin-blue .nav-tabs > li.active > a:hover {
+    color: #fff;
+    border-color: #367fa9;
+    border-radius: 0;
+    background-color: #3C8DBC;
+}

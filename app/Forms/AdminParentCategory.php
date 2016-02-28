@@ -2,14 +2,14 @@
 
 use SleepingOwl\Admin\FormItems\NamedFormItem;
 
-class AdminOrder extends NamedFormItem
+class AdminParentCategory extends NamedFormItem
 {
 
     public function render()
     {
         $params = $this->getParams();
 
-        return view('admin.forms.order', $params);
+        return view('admin.forms.parent_category', $params);
     }
 
 }

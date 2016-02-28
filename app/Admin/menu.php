@@ -19,6 +19,12 @@ Admin::menu(\App\Models\Review::class)
     ->icon('fa-comments')
     ->label('Отзывы');
 
+Admin::menu()->label('Магазин')->icon('fa-shopping-cart')->items(function () {
+    Admin::menu(\App\Models\Category::class)
+        ->icon('fa-caret-right')
+        ->label('Категории');
+});
+
 Admin::menu(\App\Models\Setting::class)
     ->icon('fa-cogs')
     ->label('Настройки');

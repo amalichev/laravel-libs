@@ -8,6 +8,7 @@
 
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.home.css'))}}
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.navbar.css'))}}
+		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.tabs.css'))}}
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addStyle(asset('/css/admin-lte.image.css'))}}
 
 		{{ \SleepingOwl\Admin\AssetManager\AssetManager::addScript(asset('/js/admin-lte.slug.js'))}}
