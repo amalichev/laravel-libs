@@ -51,55 +51,6 @@ INSERT INTO `callbacks` (`id`, `name`, `email`, `phone`, `created_at`, `updated_
 /*!40000 ALTER TABLE `callbacks` ENABLE KEYS */;
 
 
--- Дамп структуры для таблица shop.categories
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `slug` varchar(255) NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `parent_id` int(11) DEFAULT '0',
-  `status` int(11) NOT NULL,
-  `order` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
--- Дамп данных таблицы shop.categories: ~3 rows (приблизительно)
-DELETE FROM `categories`;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` (`id`, `slug`, `image`, `parent_id`, `status`, `order`, `created_at`, `updated_at`) VALUES
-	(3, 'vechernie-platya', '', 0, 1, 0, '2016-02-26 16:05:02', '2016-02-26 16:12:32'),
-	(4, 'bolshie-platya', '', 0, 1, 1, '2016-02-26 16:10:37', '2016-02-28 15:04:21'),
-	(5, 'detskie-platya', '', 3, 1, 2, '2016-02-26 16:11:12', '2016-02-26 16:11:12');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-
-
--- Дамп структуры для таблица shop.category_translations
-CREATE TABLE IF NOT EXISTS `category_translations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `category_id` int(10) unsigned NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` text,
-  `seo_title` varchar(255) DEFAULT NULL,
-  `seo_description` varchar(255) DEFAULT NULL,
-  `seo_keywords` varchar(255) DEFAULT NULL,
-  `locale` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `category_translations_category_id_locale_unique` (`category_id`,`locale`),
-  KEY `category_translations_locale_index` (`locale`),
-  CONSTRAINT `category_translations_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
--- Дамп данных таблицы shop.category_translations: ~3 rows (приблизительно)
-DELETE FROM `category_translations`;
-/*!40000 ALTER TABLE `category_translations` DISABLE KEYS */;
-INSERT INTO `category_translations` (`id`, `category_id`, `title`, `description`, `seo_title`, `seo_description`, `seo_keywords`, `locale`) VALUES
-	(3, 3, 'Вечерние платья', '<p>Произвести вечерние платья в Киргизии, легко, так как расположено множество швейников. Рабочая сила не так дорога, и тем самым получаются недорогие вечерние платья оптом. Приобрести вечерние платья оптом в Бишкеке для вас не составит никакого труда, ведь у нас налаженная схема доставки по всей России, а также по Белоруссии и Казахстану.</p>\r\n\r\n<p>Приобретая вечерние платья оптом от производителя, вы не переплачиваете перекупщикам, тем самым экономите свои деньги. Производя платья, мы конкурируем со многими странами, и чтобы оставаться в &laquo;тренде&raquo; постоянно развиваем свои линейки производства.</p>\r\n\r\n<p>У нас вы можете приобрести вечерние платья оптом недорого, особенно в разделе скидки и остатки коллекций. &nbsp;Вообще в Киргизии все дешево, по сравнению с Россией и Казахстаном, где мало того, что конкуренция огромна, но также найти производителя, является большой задачей.</p>\r\n\r\n<p>Выпуская свою марку &laquo;Sabrina&raquo; &nbsp;мы стали развивать дилерские связи по всей России, Казахстану и Белоруссии, так как из-за таможни и прочих сложностей,&nbsp; наши бирки срезали и ставили Российские, наша марка оставалась незамеченной. В связи со входом в таможенный союз,&nbsp; у нас появилась возможность, показывать свой бренд на выставках и прочих распространенных местах.</p>\r\n\r\n<p>В нашем ассортименте, вы можете приобрести вечерние платья больших размеров оптом, которые пользуются не меньшей популярностью, чем на стройных девушек. Также в нашем ассортименте имеются такие платья как коктейльные, посмотреть можете по ссылке</p>\r\n', NULL, NULL, NULL, 'ru'),
-	(4, 4, 'Большие платья', '', '', '', '', 'ru'),
-	(5, 5, 'Детские платья', '', NULL, NULL, NULL, 'ru');
-/*!40000 ALTER TABLE `category_translations` ENABLE KEYS */;
-
-
 -- Дамп структуры для таблица shop.feedbacks
 CREATE TABLE IF NOT EXISTS `feedbacks` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -314,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `review_translations` (
   CONSTRAINT `review_translations_review_id_foreign` FOREIGN KEY (`review_id`) REFERENCES `reviews` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.review_translations: ~17 rows (приблизительно)
+-- Дамп данных таблицы shop.review_translations: ~9 rows (приблизительно)
 DELETE FROM `review_translations`;
 /*!40000 ALTER TABLE `review_translations` DISABLE KEYS */;
 INSERT INTO `review_translations` (`id`, `review_id`, `title`, `position`, `teaser`, `text`, `locale`) VALUES

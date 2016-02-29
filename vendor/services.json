@@ -32,7 +32,8 @@
         "Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider",
         "Dimsav\\Translatable\\TranslatableServiceProvider",
         "Collective\\Html\\HtmlServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider"
+        "Intervention\\Image\\ImageServiceProvider",
+        "Baum\\Providers\\BaumServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -55,7 +56,8 @@
         "SleepingOwl\\AdminLteTemplate\\AdminLteTemplateServiceProvider",
         "Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider",
         "Dimsav\\Translatable\\TranslatableServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider"
+        "Intervention\\Image\\ImageServiceProvider",
+        "Baum\\Providers\\BaumServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

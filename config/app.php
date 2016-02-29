@@ -159,6 +159,8 @@ return [
 
 		'Intervention\Image\ImageServiceProvider',
 
+		'Baum\Providers\BaumServiceProvider',
+
 	],
 
 	/*
