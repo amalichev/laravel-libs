@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 use Baum\Node;
 
@@ -6,13 +6,16 @@ use Baum\Node;
 * Category
 */
 class Category extends Node {
+  use \Dimsav\Translatable\Translatable;
+
+  public $translatedAttributes = ['title', 'description', 'seo_title', 'seo_description', 'seo_keywords'];
 
   /**
    * Table name.
    *
    * @var string
    */
-  protected $table = 'categories';
+  // protected $table = 'categories';
 
   //////////////////////////////////////////////////////////////////////////////
 

@@ -1,12 +1,12 @@
 -- --------------------------------------------------------
 -- Хост:                         127.0.0.1
--- Версия сервера:               5.5.45 - MySQL Community Server (GPL)
+-- Версия сервера:               5.1.73-community - MySQL Community Server (GPL)
 -- ОС Сервера:                   Win32
--- HeidiSQL Версия:              9.3.0.4984
+-- HeidiSQL Версия:              8.3.0.4694
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
@@ -49,6 +49,53 @@ INSERT INTO `callbacks` (`id`, `name`, `email`, `phone`, `created_at`, `updated_
 	(1, 'Артём', '', '+996552502446', '2016-02-22 21:53:56', '2016-02-22 21:53:56'),
 	(2, 'Владислав', '', '0772847683', '2016-02-24 23:13:14', '2016-02-24 23:13:14');
 /*!40000 ALTER TABLE `callbacks` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.categories
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `lft` int(11) DEFAULT NULL,
+  `rgt` int(11) DEFAULT NULL,
+  `depth` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `categories_parent_id_index` (`parent_id`),
+  KEY `categories_lft_index` (`lft`),
+  KEY `categories_rgt_index` (`rgt`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.categories: ~0 rows (приблизительно)
+DELETE FROM `categories`;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица shop.category_translations
+CREATE TABLE IF NOT EXISTS `category_translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  `seo_title` varchar(255) DEFAULT NULL,
+  `seo_description` varchar(255) DEFAULT NULL,
+  `seo_keywords` varchar(255) DEFAULT NULL,
+  `locale` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `category_translations_category_id_locale_unique` (`category_id`,`locale`),
+  KEY `category_translations_locale_index` (`locale`),
+  CONSTRAINT `category_translations_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы shop.category_translations: ~0 rows (приблизительно)
+DELETE FROM `category_translations`;
+/*!40000 ALTER TABLE `category_translations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `category_translations` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица shop.feedbacks
@@ -175,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы shop.migrations: ~27 rows (приблизительно)
+-- Дамп данных таблицы shop.migrations: ~28 rows (приблизительно)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -205,7 +252,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 	('2016_02_24_212828_create_settings_table', 19),
 	('2016_02_24_214924_add_fields_widgets_table', 20),
 	('2016_02_24_221633_add_fields_settings_table', 21),
-	('2016_02_26_133433_create_categories_table', 22);
+	('2016_02_26_133433_create_categories_table', 22),
+	('2016_02_29_225910_create_categories_table', 23);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 
